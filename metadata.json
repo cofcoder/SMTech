@@ -1,0 +1,6 @@
+{
+  "name": "smtech",
+  "description": "SMTech portfolio and collaborative design showroom featuring progressive bento layouts, image optimization, and command palette.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
