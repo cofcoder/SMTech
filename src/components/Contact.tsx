@@ -6,11 +6,12 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [websiteTokenUrl, setWebsiteTokenUrl] = useState("");
 
   const [formState, setFormState] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic verification validation check
@@ -22,15 +23,40 @@ export default function Contact() {
 
     setFormState('sending');
 
-    // Simulate reliable transaction processing via Promise delay
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          message,
+          websiteTokenUrl
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || data.status === 'error') {
+        throw new Error(data.message || 'Fatal communication error with backend pipeline.');
+      }
+
       setFormState('success');
       // Reset inputs
       setName("");
       setEmail("");
       setSubject("");
       setMessage("");
-    }, 1500);
+      setWebsiteTokenUrl("");
+    } catch (err: any) {
+      console.error('Submission failed:', err);
+      setFormState('error');
+      setErrorMessage(err.message || 'An error occurred while connecting to the secure full-stack backend endpoint.');
+    }
   };
 
   const socialLinks = [
@@ -157,6 +183,20 @@ export default function Contact() {
               />
             </div>
 
+            {/* Honeypot Spam Decoy Field: invisible to human users, ignored by screen readers, fills by automate bot scripts */}
+            <div className="absolute opacity-0 pointer-events-none -z-50 h-0 w-0 overflow-hidden" aria-hidden="true">
+              <label htmlFor="websiteTokenUrl">Do not fill this field if you are human</label>
+              <input
+                id="websiteTokenUrl"
+                type="text"
+                name="websiteTokenUrl"
+                tabIndex={-1}
+                value={websiteTokenUrl}
+                onChange={(e) => setWebsiteTokenUrl(e.target.value)}
+                autoComplete="off"
+              />
+            </div>
+
             {/* Feedback Banners */}
             {formState === "error" && (
               <div className="flex gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-xs text-red-500 text-left animate-shake">
@@ -181,7 +221,7 @@ export default function Contact() {
               disabled={formState === "sending" || formState === "success"}
               className={`w-full py-3 rounded-xl text-xs font-bold font-mono uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border transform transition-all shadow-md ${
                 formState === "sending"
-                  ? "bg-slate-100 dark:bg-gray-850 border-slate-200 dark:border-gray-800 text-slate-400 pointer-events-none"
+                  ? "bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-gray-800 text-slate-400 pointer-events-none"
                   : formState === "success"
                   ? "bg-green-500/10 border-green-550/20 text-green-500 cursor-default shadow-none"
                   : "bg-indigo-600 hover:bg-indigo-550 hover:shadow-indigo-500/20 text-white border-transparent active:scale-98"

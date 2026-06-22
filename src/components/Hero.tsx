@@ -83,7 +83,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Kanban column - sits equally tall in stretch/flex block */}
-      <div className="flex-1 w-full max-w-lg lg:max-w-xl xl:max-w-2xl flex flex-col justify-center animate-fade-in">
+      <div className="flex-1 w-full max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto lg:mx-0 flex flex-col justify-center animate-fade-in">
         <div className="relative">
           <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-indigo-550 to-pink-500 opacity-20 blur-md pointer-events-none" />
           <InteractiveKanban />

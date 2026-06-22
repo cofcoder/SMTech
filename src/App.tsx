@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Helmet from './components/Helmet.tsx';
 import Header from './components/Header.tsx';
 import Hero from './components/Hero.tsx';
 import Gallery from './components/Gallery.tsx';
@@ -53,8 +54,11 @@ export default function App() {
   }, []);
 
   return (
-    <div className="bg-slate-50 text-slate-900 dark:bg-[#070913] dark:text-slate-100 min-h-screen font-sans transition-colors duration-300 relative selection:bg-indigo-500 selection:text-white">
+    <div className="bg-slate-50 text-slate-900 dark:bg-[#070913] dark:text-slate-100 min-h-screen font-sans transition-colors duration-300 relative selection:bg-indigo-500 selection:text-white w-full max-w-full overflow-x-hidden">
       
+      {/* Dynamic Document Head SEO/Meta Controller */}
+      <Helmet />
+
       {/* Dynamic Floating Command Palette modal */}
       <CommandPalette 
         isOpen={commandPaletteOpen} 

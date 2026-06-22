@@ -74,7 +74,7 @@ export default function Gallery() {
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
                 activeTab === tab
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/10"
-                  : "bg-slate-100 dark:bg-gray-850 hover:bg-slate-200 dark:hover:bg-gray-800 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 border border-transparent hover:border-slate-200 dark:hover:border-gray-800"
+                  : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
               }`}
             >
               {tab}
@@ -156,7 +156,7 @@ export default function Gallery() {
                 </div>
                 
                 {/* Size stats footer */}
-                <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-gray-850/60 text-[10px] font-mono text-slate-400">
+                <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800/60 text-[10px] font-mono text-slate-400">
                   <span className="uppercase">Index ID: 00{item.id}</span>
                   <span className="text-indigo-500 font-bold">{item.bytes}</span>
                 </div>
@@ -219,7 +219,7 @@ export default function Gallery() {
 
               <button
                 onClick={handleCloseLightbox}
-                className="p-1.5 bg-gray-850 hover:bg-red-650 text-gray-400 hover:text-white rounded-lg transition-all cursor-pointer"
+                className="p-1.5 bg-slate-800 hover:bg-slate-700 text-gray-400 hover:text-white rounded-lg transition-all cursor-pointer"
                 title="Close Lightbox (ESC)"
               >
                 ✕ Close
@@ -259,7 +259,7 @@ export default function Gallery() {
                   </div>
 
                   {/* Metadata key value list */}
-                  <div className="space-y-3.5 pt-4 border-t border-gray-850/60 font-mono text-xs">
+                  <div className="space-y-3.5 pt-4 border-t border-slate-800/60 font-mono text-xs">
                     <div className="flex items-center justify-between">
                       <span className="text-gray-500">Asset Payload:</span>
                       <span className="text-white font-semibold">{lightboxItem.bytes}</span>
@@ -282,12 +282,12 @@ export default function Gallery() {
                     </div>
                     <div className="flex items-center justify-between flex-wrap">
                       <span className="text-gray-500">Proxy Coords:</span>
-                      <span className="bg-gray-900 px-1 py-0.5 rounded text-[10px] text-fuchsia-400">Trowbridge_UK_Node1</span>
+                      <span className="bg-slate-900 px-1 py-0.5 rounded text-[10px] text-fuchsia-400">Trowbridge_UK_Node1</span>
                     </div>
                   </div>
 
                   {/* System alert notice */}
-                  <div className="flex gap-2.5 p-3 rounded-lg bg-indigo-950/20 border border-indigo-850/40 text-[11px] text-indigo-300">
+                  <div className="flex gap-2.5 p-3 rounded-lg bg-indigo-950/20 border border-indigo-900/40 text-[11px] text-indigo-300">
                     <ShieldAlert size={14} className="shrink-0 text-indigo-400" />
                     <span>Assets are automatically hydrated in lazy pipelines to enforce fast client load bounds.</span>
                   </div>
@@ -300,7 +300,7 @@ export default function Gallery() {
                   target="_blank"
                   rel="noreferrer"
                   referrerPolicy="no-referrer"
-                  className="w-full text-center py-2.5 rounded-lg bg-gray-850 hover:bg-gray-800 text-xs font-semibold text-white border border-gray-800 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full text-center py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white border border-slate-700 flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
                   <Download size={13} />
                   Open High-Resolution Assets

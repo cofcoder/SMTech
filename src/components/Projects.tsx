@@ -19,7 +19,7 @@ export default function Projects() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-slate-200 dark:border-slate-800 relative"
     >
       {/* Visual glowing layout gradients */}
-      <div className="absolute right-1/4 bottom-10 w-96 h-96 bg-cyan-550/5 blur-3xl pointer-events-none rounded-full" />
+      <div className="absolute right-1/4 bottom-10 w-96 h-96 bg-cyan-500/5 blur-3xl pointer-events-none rounded-full" />
 
       {/* Header section element */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -44,7 +44,7 @@ export default function Projects() {
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
                 activeFilter === filt
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/10"
-                  : "bg-slate-100 dark:bg-gray-850 hover:bg-slate-200 dark:hover:bg-gray-800 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 border border-transparent hover:border-slate-200 dark:hover:border-gray-800"
+                  : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
               }`}
             >
               {filt}
@@ -106,7 +106,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 bg-slate-100/80 dark:bg-gray-850/60 rounded text-[10px] text-slate-500 dark:text-gray-400 font-semibold font-mono"
+                      className="px-2 py-0.5 bg-slate-100/80 dark:bg-slate-800/60 rounded text-[10px] text-slate-500 dark:text-gray-400 font-semibold font-mono"
                     >
                       {tag}
                     </span>
@@ -116,7 +116,7 @@ export default function Projects() {
               </div>
 
               {/* Card Actions Footer links */}
-              <div className="flex items-center justify-between mt-6 pt-4 border-t border-slate-100 dark:border-gray-850/60">
+              <div className="flex items-center justify-between mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/60">
                 <span className="text-[10px] font-mono uppercase text-slate-400 font-bold">{project.date}</span>
                 
                 <div className="flex items-center gap-3">
@@ -125,7 +125,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noreferrer"
                     referrerPolicy="no-referrer"
-                    className="p-1 px-2 hover:bg-slate-101 dark:hover:bg-gray-800 text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 rounded-md transition-colors flex items-center gap-1.5 text-xs font-mono select-none"
+                    className="p-1 px-2 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 rounded-md transition-colors flex items-center gap-1.5 text-xs font-mono select-none"
                     title="Explore project pipeline codebase"
                   >
                     <Github size={13} />
